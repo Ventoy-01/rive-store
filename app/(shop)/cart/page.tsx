@@ -87,7 +87,7 @@ export default function CartPage() {
                                     <span>{total()}€</span>
                                 </div>
                             </div>
-                            <Link href="/checkout" className="btn-primary w-full text-center block">
+                            <Link href="#" className="btn-primary w-full text-center block">
                                 Procéder au paiement
                             </Link>
                         </div>
