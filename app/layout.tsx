@@ -3,6 +3,7 @@ import { Providers } from '@/app/providers';
 import { CartProvider } from '@/app/lib/cart-context';
 import type { Metadata } from 'next';
 import './globals.css';
+import NavbarWrapper from "@/app/components/NavbarWrapper";
 
 
 // Configuration avec chemins explicites
@@ -43,6 +44,7 @@ export default function RootLayout({
             <body className="font-sans antialiased">
                 <Providers>
                     <CartProvider>
+                    <NavbarWrapper />
                         {children}
                     </CartProvider>
                 </Providers>
