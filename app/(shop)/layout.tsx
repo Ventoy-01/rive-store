@@ -1,4 +1,4 @@
-import Navbar from '@/app/components/Navbar';
+import NavbarWrapper from '@/app/components/NavbarWrapper';
 import Footer from '@/app/components/Footer';
 
 export default function ShopLayout({
@@ -8,7 +8,7 @@ export default function ShopLayout({
 }) {
     return (
         <div className="min-h-screen flex flex-col">
-            <Navbar />
+            <NavbarWrapper />
             <main className="flex-grow">
                 {children}
             </main>

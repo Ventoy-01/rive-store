@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo, Suspense } from 'react'; // ← Ajoute Suspense
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Grid, List, Filter, Sparkles } from 'lucide-react';
@@ -22,7 +22,7 @@ interface Product {
     isFeatured?: boolean;
 }
 
-export default function ProductsPage() {
+function ProductsContent() {
     const searchParams = useSearchParams();
 
     // Filtres depuis l'URL
@@ -341,7 +341,7 @@ export default function ProductsPage() {
                                                 layout
                                                 className={viewMode === 'list' ? 'grid' : ''}
                                             >
-                                                <ProductCard product={product} viewMode={viewMode} />
+                                                <ProductCard product={product}  />
                                             </motion.div>
                                         ))}
                                     </AnimatePresence>
@@ -374,5 +374,22 @@ export default function ProductsPage() {
                 </div>
             </div>
         </div>
+    );
+}
+
+export default function ProductsPage() {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen bg-gradient-to-b from-white to-primary-50/30 py-12 mt-5">
+                <div className="container-custom">
+                    <div className="text-center py-20">
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto"></div>
+                        <p className="mt-4 text-gray-500">Chargement des produits...</p>
+                    </div>
+                </div>
+            </div>
+        }>
+            <ProductsContent />
+        </Suspense>
     );
 }

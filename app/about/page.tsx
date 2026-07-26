@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-import Navbar from '@/app/components/Navbar';
+import NavbarWrapper from '@/app/components/NavbarWrapper';
 import Footer from '@/app/components/Footer';
 
 export default function AboutPage() {
@@ -24,7 +24,7 @@ export default function AboutPage() {
     return (
         <div className="min-h-screen flex flex-col bg-white">
             {/* Navbar */}
-            <Navbar />
+            <NavbarWrapper />
 
             <main className="flex-grow pt-16 m-2">
                 <div className="container-custom py-16">
