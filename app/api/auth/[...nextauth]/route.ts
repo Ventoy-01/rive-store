@@ -45,21 +45,18 @@ const handler = NextAuth({
         async jwt({ token, user }) {
             if (user) {
                 token.role = user.role;
-                token.id = user.id;
             }
             return token;
         },
         async session({ session, token }) {
             if (session.user) {
-                session.user.role = token.role;
-                session.user.id = token.id;
+                session.user.role = token.role as string;
             }
             return session;
-        }
+        },
     },
     pages: {
         signIn: '/login',
-        signUp: '/register',
     },
     session: {
         strategy: 'jwt',
