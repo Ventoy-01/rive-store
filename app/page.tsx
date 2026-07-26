@@ -8,7 +8,7 @@ import Footer from '@/app/components/Footer';
 import ProductCard from '@/app/components/ProductCard';
 import Newsletter from '@/app/components/Newsletter';
 import Image from 'next/image';
-import NavbarWrapper from "@/app/components/NavbarWrapper";
+// import NavbarWrapper from "@/app/components/NavbarWrapper";
 
 interface Product {
   id: string;
@@ -41,7 +41,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Navbar - visible sur la page d'accueil */}
-      <NavbarWrapper />
+      {/*<NavbarWrapper />*/}
 
       <main className="flex-grow m-2">
         {/* Hero Section avec image de fond et fallback */}
